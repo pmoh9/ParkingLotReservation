@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag "form" %>
+
+<div class="container">
+	<div class="content">
+		<%= form_with model:[current_user, current_user.vehicles.build]  do  |f| %>
+			<h2 class="form-title">Add a vehicle:</h2>
+
+			<div class="ffl-wrapper">
+				<label for="vehnumber" class="ffl-label">Vehicle Number</label>
+				<%= f.text_field :vehnumber%>
+			</div>
+
+			<div class="ffl-wrapper">
+				<label for="vehtype" class="ffl-label">Vehicle Type</label>
+				<%= f.text_field :vehtype%>
+			</div>
+
+			<div class="ffl-wrapper">
+				<label for="vehname" class="ffl-label">Vehicle Name</label>
+				<%= f.text_field :vehname%>
+			</div>
+
+
+			<div class="form-group">
+				<%= f.submit "Add a vehicle" ,class:'btn form-submit'%>
+			</div>
+		<% end %>
+	</div>
+</div>
+<script>
+	$('.ffl-wrapper').floatingFormLabels();
+</script>

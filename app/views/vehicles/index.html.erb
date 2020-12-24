@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "form" %>
+<table class="table table-bordered mt-4 mx-auto" style="background-color:white;width:60%">
+	<tr>
+		<th>Vehicle Name</th>
+		<th>Vehicle Type</th>
+		<th>Vehicle Number</th>
+		<th>Book</th>
+		<th>Delete</th>
+	</tr>
+
+	<% current_user.vehicles.each do |vehicle| %>
+		<tr>
+			<td><%= vehicle.vehname %></td>
+			<td><%= vehicle.vehtype %></td>
+			<td><%= vehicle.vehnumber %></td>
+			<td></td>
+			<td><%= link_to fa_icon("trash"), [vehicle.user, vehicle],method: :delete, class: "btn btn-danger btn-sm del_btn" %></td>
+		</tr>
+	<% end %>
+</table>
+
+<div class="form-group text-center w-100">
+	<%= link_to "Add" ,new_user_vehicle_url(current_user),class:'btn form-submit w-25'%>
+</div>

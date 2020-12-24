@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ParkingLotReservation</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
+
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'https://rawgit.com/Baedda/floating-form-labels/master/dist/floatingFormLabels.min.js','data-turbolinks-track': 'reload' %>
+		<%= stylesheet_link_tag 'application','https://fonts.googleapis.com/css2?family=Nunito&display=swap', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+	</head>
+
+	<body>
+		<header id="header" style="margin-bottom:92px">
+			<div class="container-fluid">
+
+				<div id="logo" class="pull-left">
+					<h1><a href="/">Online Parking</a></h1>
+				</div>
+
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="">Home</a></li>
+
+						<li class="menu-has-children"><a href="#">
+								<%= image_tag "avatar.png",style:' width: 32px;height:32px;border-radius:50%' %></a>
+							<ul>
+								<% if is_admin? %>
+									<%# Admin Access %>
+									<li><a href="#">See Trends</a></li>
+									<li><a href="#">Manage Users</a></li>
+								<% end %>
+								<% if logged_in? %>
+									<li><a href="#"><%= current_user.name %></a></li>
+									<%# After Login %>
+									<%= link_to "Log out", logout_path, method: "delete" %>
+								<% else %>
+									<li><a href="/login">Login</a></li>
+								<%end%>
+							</ul>
+						</li>
+
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div class="gap">
+			<%= yield %>
+		</div>
+	</body>
+</html>

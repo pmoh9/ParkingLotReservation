@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag "form" %>
+
+<div class="container">
+	<div class="content">
+		<%= form_tag '/login' do %>
+			<h2 class="form-title">Member Login</h2>
+
+			<div class="ffl-wrapper">
+				<label for="email" class="ffl-label">Your Email</label>
+				<input type="email"  name="email" id="email">
+			</div>
+
+			<div class="ffl-wrapper">
+				<div id="show_hide_password">
+					<label for="password" class="ffl-label">Your Password</label>
+					<input type="password" name="password">
+					<div class="input-group-addon field-icon">
+						<a href="#"><i class="fa fa-eye-slash icon-color " aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<button type="submit" name="submit" id="submit" class="btn form-submit">Login</button>
+			</div>
+		<% end %>
+
+		<p class="helper">
+			Not a Member ? <a href="/users/new" class="helper-link">Create an account</a>
+		</p>
+	</div>
+</div>
+<script>
+	$('.ffl-wrapper').floatingFormLabels();
+	
+	$(document).ready(function() {
+		$("#show_hide_password a").on('click', function(event) {
+			event.preventDefault();
+			if($('#show_hide_password input').attr("type") == "text"){
+				$('#show_hide_password input').attr('type', 'password');
+				$('#show_hide_password i').addClass( "fa-eye-slash" );
+				$('#show_hide_password i').removeClass( "fa-eye" );
+			}else if($('#show_hide_password input').attr("type") == "password"){
+				$('#show_hide_password input').attr('type', 'text');
+				$('#show_hide_password i').removeClass( "fa-eye-slash" );
+				$('#show_hide_password i').addClass( "fa-eye" );
+			}
+		});
+	});
+</script>

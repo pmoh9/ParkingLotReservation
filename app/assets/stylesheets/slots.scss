@@ -1,0 +1,78 @@
+// Place all the styles related to the Slot controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$width: 75px;
+$height: #{$width * 1.8};
+$translate: 25px;
+
+.color {
+	border-color: rgba(46, 148, 216, 0.9) !important;
+	background-color: rgba(46, 148, 216, 0.2) !important;
+}
+
+.arrow-box {
+	padding: 0 8px;
+	width: 24px;
+	border: 1px solid black;
+	position: absolute;
+	left: 50px;
+}
+
+.arrow-box::after {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -10px;
+	border-top: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid black;
+}
+
+.vertical-text {
+	width: 1px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.slot.rotate-clockwise {
+	border-top: 2px solid rgb(127, 127, 127);
+	border-left: 2px solid rgb(127, 127, 127);
+	border-right: 2px solid rgb(127, 127, 127);
+	width: $width;
+	height: $height;
+	float: left;
+	margin-left: 1.2em;
+	margin-right: 1.2em;
+	background: none;
+}
+.slot.rotate-anticlockwise {
+	border-bottom: 2px solid rgb(127, 127, 127);
+	border-left: 2px solid rgb(127, 127, 127);
+	border-right: 2px solid rgb(127, 127, 127);
+	width: $width;
+	height: $height;
+	float: left;
+	margin-left: 1.2em;
+	margin-right: 1.2em;
+	background: none;
+}
+
+.row-1 .rotate-clockwise {
+	transform: rotate(45deg);
+}
+
+.row-2 .rotate-anticlockwise {
+	transform: translateY(30px) translateX(20px) rotate(-45deg);
+}
+
+.row-3 .rotate-clockwise {
+	transform: translateY(-25px) translateX(-37px) rotate(45deg);
+}
+
+.row-4 .rotate-anticlockwise {
+	transform: rotate(-45deg);
+}

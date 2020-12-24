@@ -1,0 +1,62 @@
+<%= stylesheet_link_tag "form" %>
+
+<div class="container">
+	<div class="content">
+		<%= form_for @user do |f|%>
+			<h2 class="form-title">Create account</h2>
+
+			<div class="ffl-wrapper">
+				<label for="name" class="ffl-label">Your Name</label>
+				<%= f.text_field :name%>
+			</div>
+
+			<div class="ffl-wrapper">
+				<label for="email" class="ffl-label">Your Email</label>
+				<%= f.text_field :email%>
+			</div>
+
+			<div class="ffl-wrapper">
+				<div id="show_hide_password">
+					<label for="password" class="ffl-label">Your Password</label>
+					<%= f.password_field :password%>
+					<div class="input-group-addon field-icon">
+						<a href="#"><i class="fa fa-eye-slash icon-color " aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="ffl-wrapper">
+				<label for="re_password" class="ffl-label">Repeat Your Password</label>
+				<input type="password"  name="re_password" id="re_password">
+			</div>
+
+
+			<div class="form-group">
+				<%# <button type="submit" name="submit" id="submit" class="btn form-submit" value="Sign up">Sign Up</button> %>
+				<%= f.submit "Sign Up" ,class:'btn form-submit'%>
+			</div>
+
+		<% end %>
+		<p class="helper">
+			Already have an account ? <a href="/login" class="helper-link">Login here</a>
+		</p>
+	</div>
+</div>
+<script>
+	$('.ffl-wrapper').floatingFormLabels();
+	
+	$(document).ready(function() {
+		$("#show_hide_password a").on('click', function(event) {
+			event.preventDefault();
+			if($('#show_hide_password input').attr("type") == "text"){
+				$('#show_hide_password input').attr('type', 'password');
+				$('#show_hide_password i').addClass( "fa-eye-slash" );
+				$('#show_hide_password i').removeClass( "fa-eye" );
+			}else if($('#show_hide_password input').attr("type") == "password"){
+				$('#show_hide_password input').attr('type', 'text');
+				$('#show_hide_password i').removeClass( "fa-eye-slash" );
+				$('#show_hide_password i').addClass( "fa-eye" );
+			}
+		});
+	});
+</script>
