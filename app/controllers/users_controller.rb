@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to user_vehicles_path(@user.id)
 		else
-			flash[:danger] = "Error saving the comment. Please try again."
+			flash[:danger] = "Error creating the User. Please try again."
 			redirect_to new_user_path()
 		end
   	end
