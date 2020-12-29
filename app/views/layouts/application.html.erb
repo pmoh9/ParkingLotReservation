@@ -50,5 +50,14 @@
 		<div class="gap">
 			<%= yield %>
 		</div>
+
+		<% flash.each do |name, msg| %>
+			<div class= "alert alert-<%= name%> alert-pos alert-dismissible fade show" role="alert" >
+				<%= msg %>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="$(this).closest('.alert')[0].remove()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<% end %>
 	</body>
 </html>
