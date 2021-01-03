@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_vehicles_path(@user.id)
     else
+        flash[:danger] = "Error logging in!"
         redirect_to '/login'
     end
   end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:new, :create] do
     resources :vehicles, :only => [:index, :new, :create, :destroy] do
-      resources :slots, :only =>[:index, :create]
+      resources :transactions, :only =>[:index, :create]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
