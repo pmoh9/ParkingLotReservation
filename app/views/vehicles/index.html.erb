@@ -13,7 +13,7 @@
 			<td><%= vehicle.vehname %></td>
 			<td><%= vehicle.vehtype %></td>
 			<td><%= vehicle.vehnumber %></td>
-			<td></td>
+			<td><%= link_to 'Book', create_transaction_path(vehicle) %></td>
 			<td><%= link_to fa_icon("trash"), [vehicle.user, vehicle],method: :delete, class: "btn btn-danger btn-sm del_btn" %></td>
 		</tr>
 	<% end %>

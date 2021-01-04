@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_03_154807) do
+ActiveRecord::Schema.define(version: 2021_01_04_085000) do
 
   create_table "transactions", force: :cascade do |t|
-    t.string "date"
-    t.string "time"
+    t.date "date"
+    t.time "time"
     t.integer "vehicle_id", null: false
     t.integer "user_id", null: false
+    t.time "exittime"
     t.index ["user_id"], name: "index_transactions_on_user_id"
     t.index ["vehicle_id"], name: "index_transactions_on_vehicle_id"
   end
@@ -27,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_01_03_154807) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone"
+    t.boolean "admin"
   end
 
   create_table "vehicles", force: :cascade do |t|

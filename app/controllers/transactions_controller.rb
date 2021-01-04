@@ -2,6 +2,6 @@ class TransactionsController < ApplicationController
   def index
   end
 
-  def book
+  def create
   end
 end
