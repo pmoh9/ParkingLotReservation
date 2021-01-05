@@ -7,9 +7,9 @@ class VehiclesController < ApplicationController
 		@user = User.find_by(id: session[:user_id])
 		@vehicle = @user.vehicles.new(vehicle_params)
 		if @vehicle.save
-			flash[:notice] = "Vehicle added successfully"
 			redirect_to user_vehicles_path(@user.id)
 		else
+			flash[:danger] = "Error! Unable to add Vehicle"
 			render 'new'
 		end
 	end

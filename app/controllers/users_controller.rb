@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   	end
 
   	def create
-		@user = User.create(params.require(:user).permit(:name, :email, :password, :phone))
-		user[:admin] = false
+		@user = User.create(params.require(:user).permit(:name, :email, :password, :phone, :password_confirmation))
+		@user[:admin] = false
 		if @user.save
 			session[:user_id] = @user.id
 			redirect_to user_vehicles_path(@user.id)

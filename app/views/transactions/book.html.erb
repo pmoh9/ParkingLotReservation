@@ -1,1 +1,16 @@
-
+<%= stylesheet_link_tag "form" %>
+<h1 class="text-center">Booking Successful</h1>
+<table class="table table-bordered mt-4 mx-auto" style="background-color:white;width:60%">
+	<tr>
+		<th>Slot Id</th>
+		<th>Date</th>
+		<th>Start Time</th>
+		<th>End Time</th>
+	</tr>
+	<tr>
+		<td><%= @slot %></td>
+		<td><%= @date %></td>
+		<td><%= @startTime %></td>
+		<td><%= @endTime %></td>
+	</tr>
+</table>

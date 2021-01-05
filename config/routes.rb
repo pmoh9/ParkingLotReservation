@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  namespace :admin do
+    get 'dashboard/index'
+  end
   root "sessions#new"
 
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+  end
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete '/logout' => 'sessions#destroy'

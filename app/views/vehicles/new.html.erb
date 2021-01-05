@@ -10,9 +10,8 @@
 				<%= f.text_field :vehnumber%>
 			</div>
 
-			<div class="ffl-wrapper">
-				<label for="vehtype" class="ffl-label">Vehicle Type</label>
-				<%= f.text_field :vehtype%>
+			<div>
+				<%= f.select :vehtype, [['Select Vehicle Type',""],['2-wheeler','2-wheeler'],['4-wheeler','4-wheeler']] %>
 			</div>
 
 			<div class="ffl-wrapper">

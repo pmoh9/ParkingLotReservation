@@ -47,47 +47,47 @@
 			<p class="vertical-text" style="left:50px">Entry</p>
 		</div>
 		<div class="row-1">
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-1">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot rotate-clockwise">
+			<div class="card slot rotate-clockwise" data-id="1-2">
 				<div class="card-body">
 					<p class="card-title text-center"><%= fa_icon("car 2x")%></p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-3">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot  rotate-clockwise">
+			<div class="card slot  rotate-clockwise" data-id="1-4">
 				<div class="card-body">
 					<p class="card-title text-center"><%= fa_icon("motorcycle 2x")%></p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-5">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-6">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-7">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-8">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-clockwise">
+			<div class="card slot free rotate-clockwise" data-id="1-9">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
@@ -95,47 +95,47 @@
 		</div>
 
 		<div class="row-2" >
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-1">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-2">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-3">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-4">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-5">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-6">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-7">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-8">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
 			</div>
-			<div class="card slot free rotate-anticlockwise">
+			<div class="card slot free rotate-anticlockwise" data-id="2-9">
 				<div class="card-body">
 					<p class="card-title text-center">Free Slot</p>
 				</div>
@@ -240,7 +240,7 @@
 	</div>
 
 	<div class="text-center mt-4">
-		<button class="btn btn-outline-primary submit" disabled> Book</button>
+		<button class="btn btn-outline-primary submit" disabled onclick="book_slot()"> Book</button>
 	</div>
 </div>
 
@@ -283,4 +283,28 @@
 	      down: "fa fa-chevron-down"
 	    }
 	});
+	
+	function book_slot(){
+		var pathname = window.location.pathname;
+		var slot = $('.color').attr("data-id");
+		var date = $("#datepicker").find("input").val(); // MM/DD/YYYY
+		var starttime = $("#start-timepicker").find("input").val(); // H:MM A
+		var endtime = $("#end-timepicker").find("input").val(); // H:MM A
+	
+		$.ajax({
+			url:pathname,
+			type:'POST',
+			data:{
+				"slot":slot,
+				"date":date,
+				"startTime":starttime,
+				"endTime":endtime
+			},
+			success:function(data){
+				alert("done")
+				console.log(data)
+				$("body").html(data);
+			}
+		})
+	}
 </script>

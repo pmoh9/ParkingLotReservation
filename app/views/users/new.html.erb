@@ -14,6 +14,11 @@
 				<label for="email" class="ffl-label">Your Email</label>
 				<%= f.text_field :email%>
 			</div>
+			
+			<div class="ffl-wrapper">
+				<label for="phone" class="ffl-label">Your Phone No.</label>
+				<%= f.text_field :phone%>
+			</div>
 
 			<div class="ffl-wrapper">
 				<div id="show_hide_password">
@@ -26,8 +31,13 @@
 			</div>
 			
 			<div class="ffl-wrapper">
-				<label for="phone" class="ffl-label">Your Phone No.</label>
-				<%= f.text_field :phone%>
+				<div id="show_hide_password">
+					<label for="password_confirmation" class="ffl-label">Repeat Password</label>
+					<%= f.password_field :password_confirmation%>
+					<div class="input-group-addon field-icon">
+						<a href="#"><i class="fa fa-eye-slash icon-color " aria-hidden="true"></i></a>
+					</div>
+				</div>
 			</div>
 
 			<div class="form-group">
